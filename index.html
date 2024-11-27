@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Monitor</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .bg-gradient {
+      background: linear-gradient(90deg, #e3f2fd, #bbdefb);
+      color: black;
+    }
+    .btn-pink {
+      background-color: #f012be;
+      color: white;
+    }
+    .btn-pink:hover {
+      background-color: #d10ca3;
+    }
+    .chart-container {
+      max-height: 400px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="bg-primary text-white text-center py-2">
+    <div class="container">
+      <p class="mb-0">Grupo one - Donde los datos impulsan el valor</p>
+    </div>
+  </header>
+
+  <!-- Menú de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="C:/Users/nicol/Downloads/R (3).png" alt="Logo" class="d-inline-block align-text-top"> Grupo - One
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">IoT Monitor</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Referencias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Planes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sección principal -->
+  <main class="bg-gradient py-5">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold text-black">IoT para monitoreo y control de Consumo</h1>
+      <p class="mt-4 text-black">
+        Monitoree su infraestructura en tiempo real con nuestra plataforma IoT. Capturamos datos clave, generamos KPIs y automatizamos procesos, optimizando el rendimiento y reduciendo costos operacionales.
+      </p>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6 chart-container">
+          <h3 class="text-center">Consumo de Energía (Watts)</h3>
+          <canvas id="chart1"></canvas>
+        </div>
+        <div class="col-md-6 chart-container">
+          <h3 class="text-center">Producción Solar (kWh)</h3>
+          <canvas id="chart2"></canvas>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 chart-container">
+          <h3 class="text-center">Temperatura del Sistema (°C)</h3>
+          <canvas id="chart3"></canvas>
+        </div>
+        <div class="col-md-6 chart-container">
+          <h3 class="text-center">Estado de Batería (%)</h3>
+          <canvas id="chart4"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Botón de contacto -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <a href="#" class="btn btn-light btn-lg">Cotiza con nosotros</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Chart.js Script -->
+  <script>
+    const chartsConfig = [
+      {
+        id: 'chart1',
+        label: 'Watts',
+        data: [120, 150, 180, 170, 160, 200],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)'
+      },
+      {
+        id: 'chart2',
+        label: 'kWh',
+        data: [2, 4, 6, 5, 7, 8],
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)'
+      },
+      {
+        id: 'chart3',
+        label: '°C',
+        data: [25, 27, 29, 30, 28, 26],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)'
+      },
+      {
+        id: 'chart4',
+        label: '%',
+        data: [80, 75, 70, 85, 90, 95],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)'
+      }
+    ];
+
+    chartsConfig.forEach(config => {
+      const ctx = document.getElementById(config.id).getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
+          datasets: [{
+            label: config.label,
+            data: config.data,
+            backgroundColor: config.backgroundColor,
+            borderColor: config.borderColor,
+            borderWidth: 2,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Hora'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: config.label
+              },
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

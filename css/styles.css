@@ -1,0 +1,15 @@
+/* Fondo degradado */
+.bg-gradient {
+    background: linear-gradient(90deg, #0056b3, #007bff);
+  }
+  
+  /* Botón personalizado */
+  .btn-pink {
+    background-color: #f012be;
+    color: black;
+  }
+  
+  .btn-pink:hover {
+    background-color: #d10ca3;
+  }
+  
