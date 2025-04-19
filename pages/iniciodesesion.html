@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - IoT Monitor</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .bg-gradient {
+      background: linear-gradient(90deg, #f3e5f5, #e8eaf6);
+      color: black;
+    }
+    .btn-pink {
+      background-color: #f012be;
+      color: white;
+    }
+    .btn-pink:hover {
+      background-color: #d10ca3;
+    }
+    .login-card {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .login-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="bg-primary text-white text-center py-2">
+    <div class="container">
+      <p class="mb-0">IoT Monitor - Soluciones para tus necesidades IoT</p>
+    </div>
+  </header>
+
+  <!-- Menú de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">IoT-MONITOR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">IoT Monitor</a></li>
+          <li class="nav-item"><a class="nav-link" href="/one/pages/Servicios.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="/one/pages/Contacto.html">Contacto</a></li>
+        
+          <li class="nav-item"><a class="nav-link active" href="#">Iniciar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sección de inicio de sesión -->
+  <main class="bg-gradient py-5">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold">Iniciar sesión</h1>
+      <p class="mt-4">
+        Por favor ingresa tus datos para acceder a tu cuenta y obtener acceso a nuestras soluciones IoT personalizadas.
+      </p>
+    </div>
+
+    <!-- Formulario de inicio de sesión -->
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card login-card">
+            <div class="card-body">
+              <form action="procesar_login.php" method="POST">
+                <!-- Correo electrónico -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo Electrónico</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <!-- Recordar sesión -->
+                <div class="form-check mb-3">
+                  <input type="checkbox" class="form-check-input" id="remember">
+                  <label class="form-check-label" for="remember">Recordarme</label>
+                </div>
+
+                <!-- Enviar -->
+                <button type="submit" class="btn btn-pink">Iniciar sesión</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">IoT Monitor © 2024 - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
