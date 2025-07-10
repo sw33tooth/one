@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AutoNet</title>
   <!-- Bootstrap CSS -->
@@ -9,6 +9,18 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+    }
     .bg-gradient {
       background: linear-gradient(90deg, #e3f2fd, #bbdefb);
       color: black;
@@ -24,17 +36,19 @@
       max-height: 400px;
       margin: 20px 0;
     }
-  
+    /* Ajusta tamaño del logo */
+    .logo-img {
+      height: 40px; /* ajusta según lo que necesites */
+    }
   </style>
 </head>
 <body>
-  </header>
 
   <!-- Menú de navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="/one/logo.png" alt="Logo" class="d-inline-block align-text-top"> Autonet
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="/one/logo.png" alt="Logo" class="logo-img me-2"> Autonet
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -84,7 +98,7 @@
     </div>
   </main>
 
-  <!-- Botón de contacto -->
+  <!-- Footer -->
   <footer class="bg-dark text-white text-center py-4">
     <div class="container">
       <a href="#" class="btn btn-light btn-lg">Cotiza con nosotros</a>
